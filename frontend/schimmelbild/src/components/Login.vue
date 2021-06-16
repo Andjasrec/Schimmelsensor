@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="Signup">Login</div> 
+      <div class="Signup">Sign In</div> 
       <div class="Login">Sign Up</div>
       <div class="Name"><input type="text" placeholder="Name" id="username" name="username" v-model="username"></div>
       <div class="Email"><input type="password" placeholder="Password" name="password"  id="password" v-model="password"></div>
@@ -10,7 +10,7 @@
 
 <script>
 import axios from "axios";
-
+import router from "./../router"
   export default {
     props: {
 
@@ -23,6 +23,7 @@ import axios from "axios";
     },
     methods: {
       loginUser: function() {
+        router.push({name:"Feed"})
         let userData = {
           username: this.username,
           password: this.password

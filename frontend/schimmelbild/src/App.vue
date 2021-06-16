@@ -1,24 +1,11 @@
 <template>
   <div>
-    <!--<Login></Login>-->
-    <Register></Register>
-    <!--<Feed></Feed>-->
+      <router-view/>
   </div>
 </template>
 
 <script>
-//import Login from './components/Login.vue'
-import Register from './components/Register.vue'
-//import Feed from './components/Feed.vue'
 
-export default {
-  name: 'App',
-  components: {
-    //Login,
-    Register,
-    //Feed
-  }
-}
 </script>
 
 <style>
@@ -61,3 +48,6 @@ width: 343px;
 height: 51px;
 }
 </style>
+
+
+
