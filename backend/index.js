@@ -3,8 +3,12 @@ var mqtt = require('mqtt')
 var mqttclient  = mqtt.connect('mqtt://mqtt.hfg.design')
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Andja:Janklause1@andjascluster.z6wgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const dbclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
 var db;
 var data;
+var userData;
+
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -22,7 +26,11 @@ const corsSettings = {
     methods: ["GET", "POST", "PUT", "DELETE"]
   }
 };
-const dbclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+app.use(cors(corsSettings));
+app.listen(port, () => {
+  console.log(`user data service live @ http://localhost:${port}`);
+});
+
 
 //function Sammlungen
 
@@ -62,6 +70,7 @@ dbclient.connect(err => {
     console.log("Verbunden mit der Schimmelbank");
     db = dbclient.db("Schimmelsensor");
     data = db.collection("Eingangsdaten");
+    userData = db.collection("Users") //users anlegen in datenbank
     mqttclient.on('message', function (topic, message) {
         // message is Buffer
         //console.log(message.toString());
@@ -69,24 +78,15 @@ dbclient.connect(err => {
     })
 })
 
-app.use(cors(corsSettings));
-const port = 3001;
-app.listen(port, () => {
-  console.log(`user data service live @ http://localhost:${port}`);
-});
-
-
-
-
-
-
-
-
-app.listen(port, ()=> {
-  console.log("Verbunden mit http://localhost:3000/api/latest")
-})
 app.get('/api/latest', (req, res)=>{
-  data.find({}).sort({'createdat': -1}).limit(1).next()
+  data.find({}).sort({'createdat': -1}).limit(1).next() // limit = anzahl der Daten toArray fhkntion https://docs.mongodb.com/manual/reference/method/cursor.toArray/
+  .then(async(latest)=>{
+    res.send(latest)
+  })
+})
+
+app.get('/api/last10', (req, res)=>{
+  data.find({}).sort({'createdat': -1}).limit(10).toArray() // https://vue-chartjs.org/guide/#chart-with-local-data
   .then(async(latest)=>{
     res.send(latest)
   })

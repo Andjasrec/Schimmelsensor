@@ -2,17 +2,44 @@
   <div>
       <div class="Signup">Sign Up</div> 
       <div class="Login">Login</div>
-      <div class="Name"><input type="text" placeholder="Name"></div>
+      <div class="Name"><input type="text" placeholder="Name" id="username" name="username" v-model="username"></div>
       <div class="Email"><input type="text" placeholder="Email"></div>
-      <div class="Password"><input type="password" placeholder="Password"></div>
-      <div class="SignButton"><button>Sign Up</button></div>
+      <div class="Password"><input type="password" placeholder="Password" id="password" name="password" v-model="password"></div>
+      <div class="SignButton" v-on:click="registerUser"><button>Sign Up</button></div>
   </div>
 </template>
 
 <script>
-export default {
 
-}
+import axios from "axios";
+
+  export default {
+    props: {
+
+    },
+    data() {
+      return {
+        username: "",
+        password: ""
+      }
+    },
+    methods: {
+      registerUser: function() {
+        let userData = {
+          username: this.username,
+          password: this.password
+        };
+        const uri = "http://localhost:3000/api/register";
+        axios.post(uri, userData)
+        .then (function(response) {
+          console.log(response)
+        })
+        .catch (function (err) {
+          console.log(err)
+        })
+      }
+    },
+  };
 </script>
 
 <style>
