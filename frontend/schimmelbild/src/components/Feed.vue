@@ -26,13 +26,10 @@ export default {
     mounted: {
       function(){
       axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response.data.bpi))
-      axios
       .get('http://localhost:3000/api/latest')
       .then(response => (this.data = response.data.Luftfeuchtigkeit))
       .catch(error => console.log(error))
-      console.log(info)
+      //console.log(data)
         }
       
     },
