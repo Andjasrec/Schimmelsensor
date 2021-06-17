@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="Signup">Sign Up</div> 
-      <div class="Login">Login</div>
+      <div class="Login" v-on:click="Wechseln">Sign In</div>
       <div class="Name"><input type="text" placeholder="Name" id="username" name="username" v-model="username"></div>
       <div class="Email"><input type="text" placeholder="Email"></div>
       <div class="Password"><input type="password" placeholder="Password" id="password" name="password" v-model="password"></div>
@@ -12,6 +12,7 @@
 <script>
 
 import axios from "axios";
+import router from "./../router"
 
   export default {
     props: {
@@ -24,7 +25,11 @@ import axios from "axios";
       }
     },
     methods: {
+      Wechseln: function(){
+        router.push({name:"SignIn"})
+      },
       registerUser: function() {
+        router.push({name:"Feed"})
         let userData = {
           username: this.username,
           password: this.password

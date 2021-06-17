@@ -8,6 +8,7 @@ const dbclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopolog
 var db;
 var data;
 var userData;
+var sessions = {};
 
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');

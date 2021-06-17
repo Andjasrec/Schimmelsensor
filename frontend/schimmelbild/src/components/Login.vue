@@ -1,10 +1,10 @@
 <template>
     <div>
-      <div class="Signup">Sign In</div> 
-      <div class="Login">Sign Up</div>
+      <div class="Signup" >Sign In</div> 
+      <div class="Login" v-on:click="Wechseln">Sign Up</div>
       <div class="Name"><input type="text" placeholder="Name" id="username" name="username" v-model="username"></div>
       <div class="Email"><input type="password" placeholder="Password" name="password"  id="password" v-model="password"></div>
-      <div class="SignButton" v-on:click="loginUser"><button>Sign Up</button></div>
+      <div class="SignButton" v-on:click="loginUser"><button>Sign In</button></div>
   </div>
 </template>
 
@@ -22,6 +22,9 @@ import router from "./../router"
       }
     },
     methods: {
+      Wechseln: function(){
+        router.push({name:"Signup"})
+      },
       loginUser: function() {
         router.push({name:"Feed"})
         let userData = {
