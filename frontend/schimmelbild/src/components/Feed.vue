@@ -2,8 +2,8 @@
   <div>
     <div class="Signup">Feed</div> 
     <div class="massnahmen">Keine Maßnahmen nötig</div>
-    <div>Luftfeuchtigkeit {{Luftfeuchtigkeit}}</div>
-    <div>Raumtemperatur {{Temperatur}}</div>
+    <div class="Luftfeuchtigkeit">Luftfeuchtigkeit {{Luftfeuchtigkeit}}</div>
+    <div class="Raumtemperatur">Raumtemperatur {{Temperatur}}</div>
     <div>Taumessung</div>
     <div class="WeitereSensoren">Weitere Sensoren</div>
   </div>
@@ -89,5 +89,35 @@ line-height: 25px;
 text-align: center;
 /* Black */
 color: #000000;
+}
+.Luftfeuchtigkeit{
+  position: absolute;
+width: 343px;
+height: 36px;
+left: calc(50% - 343px/2 - 7px);
+top: calc(50% - 36px/2 + 91px);
+
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 21px;
+line-height: 25px;
+text-align: center;
+
+}
+.Raumtemperatur{
+  position: absolute;
+width: 343px;
+height: 36px;
+left: calc(50% - 343px/2 - 9px);
+top: calc(50% - 36px/2 + 139px);
+
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 21px;
+line-height: 25px;
+text-align: center;
+
 }
 </style>
