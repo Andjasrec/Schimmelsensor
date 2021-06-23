@@ -26,7 +26,7 @@ import router from "./../router"
         router.push({name:"Signup"})
       },
       loginUser: function() {
-        router.push({name:"Feed"})
+        
         let userData = {
           username: this.username,
           password: this.password
@@ -34,9 +34,13 @@ import router from "./../router"
         const uri = "http://localhost:3000/api/login";
         axios.post(uri, userData)
         .then (function(response) {
-          console.log(response)
+         
+            console.log("gehe zu nächstem screen");
+            console.log(response);
+         
         })
         .catch (function (err) {
+          console.log("Redirecte zu Home und gib Proklem bekannt");
           console.log(err)
         })
       }

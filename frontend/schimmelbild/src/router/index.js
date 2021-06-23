@@ -32,3 +32,5 @@ export const router = new VueRouter({
 })
 
 export default router
+
+//https://stackoverflow.com/questions/52560021/how-to-restrict-page-access-to-unlogged-users-with-vuejs
