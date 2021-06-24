@@ -4,6 +4,8 @@ import Login from '../components/Login.vue'
 import Feed from '../components/Feed.vue'
 import Register from '../components/Register.vue'
 import Test from '../views/test.vue'
+import Chart from '../views/Chartcontainer.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,6 +32,11 @@ const routes = [
     path: '/Test',
     name: 'test',
     component: Test
+  },
+  {
+    path: '/Chart',
+    name: 'Chart',
+    component: Chart
   },
 ]
 
