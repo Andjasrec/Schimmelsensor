@@ -33,11 +33,10 @@ import router from "./../router"
         };
         const uri = "http://localhost:3000/api/login";
         axios.post(uri, userData)
-        .then (function(response) {
-         
-            console.log("gehe zu nächstem screen");
-            console.log(response);
-         
+        .then (function(response){
+            router.push({name:"Feed"})
+            //console.log(response)
+            response
         })
         .catch (function (err) {
           console.log("Redirecte zu Home und gib Proklem bekannt");

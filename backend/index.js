@@ -157,6 +157,7 @@ app.post('/api/login', (req, res) => {
           });
         } else {
           res.status(500).send("wrong pw");
+          console.log("User hat falsches Daten eingegeben")
         }
       } else {
         res.status(500).send("user not found");

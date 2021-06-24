@@ -29,7 +29,7 @@ import router from "./../router"
         router.push({name:"SignIn"})
       },
       registerUser: function() {
-        router.push({name:"Feed"})
+        router.push({name:"SignIn"})
         let userData = {
           username: this.username,
           password: this.password
