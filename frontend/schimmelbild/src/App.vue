@@ -16,7 +16,6 @@ font-style: normal;
 font-weight: 600;
 }
 input{
-
 width: 343px;
 height: 50px;
 background: #F6F6F6;
