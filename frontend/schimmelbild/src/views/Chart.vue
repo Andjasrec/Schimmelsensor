@@ -1,7 +1,4 @@
-<template>
-  <div></div>
-</template>
-
+ 
 <script>
 import { Line } from 'vue-chartjs'
 
@@ -9,7 +6,7 @@ export default {
   extends: Line,
   props: {
     chartdata: {
-      type: Object,
+      type: Array,
       default: null
     },
     options: {
@@ -18,6 +15,7 @@ export default {
     }
   },
   mounted () {
+    const dates = this.chartData.map
     this.renderChart(this.chartdata, this.options)
   }
 }
