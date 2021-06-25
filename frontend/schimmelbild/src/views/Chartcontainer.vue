@@ -1,6 +1,6 @@
 <template>
   <div class="container" v-if="arrLuftfeuchtigkeit.length > 0" >
-    <line-chart :chartData="arrTemperatur" :options="chartOptions" label="Luftfeuchtigkeit"></line-chart>
+    <line-chart :chartData="arrLuftfeuchtigkeit" :options="chartOptions" label="Luftfeuchtigkeit"></line-chart>
   </div>
 </template>
 
@@ -32,12 +32,12 @@ export default {
         Temperatur,
       } = d;
 
-      this.arrLuftfeuchtigkeit.push({ date, Luftfeuchtigkeit });
-      this.arrTemperatur.push({ date, Temperatur });
+      this.arrLuftfeuchtigkeit.push({ date, total:Luftfeuchtigkeit });
+      this.arrTemperatur.push({ date, total:Temperatur });
       
       
   });
-  console.log(this.arrLuftfeuchtigkeit)
+  //console.log(this.arrLuftfeuchtigkeit)
   },
   
   

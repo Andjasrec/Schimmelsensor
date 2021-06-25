@@ -96,7 +96,7 @@ app.get('/api/latest', (req, res) => {
 app.get('/api/last10', (req, res) => {
   data.find({}).sort({
       'createdat': -1
-    }).limit(10).toArray() // https://vue-chartjs.org/guide/#chart-with-local-data
+    }).limit(100).toArray() // https://vue-chartjs.org/guide/#chart-with-local-data
     .then(async (latest) => {
       res.send(latest)
     })
