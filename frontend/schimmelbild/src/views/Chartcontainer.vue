@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <line-chart/>
+  <div class="container" v-if="arrLuftfeuchtigkeit.length > 0" >
+    <line-chart :chartData="arrTemperatur" :options="chartOptions" label="Luftfeuchtigkeit"></line-chart>
   </div>
 </template>
 
 <script>
-import LineChart from './Chart.vue';
+import LineChart from './chart.vue';
 import axios from "axios";
 import moment from "moment";
 export default {
@@ -14,7 +14,11 @@ export default {
   data(){
     return{
         arrLuftfeuchtigkeit: [],
-        arrTemperatur: []
+        arrTemperatur: [],
+        chartOptions:{
+          responive: true,
+          maintianAspectRatio:false
+        }
     }
   },
   async created() {
@@ -30,9 +34,10 @@ export default {
 
       this.arrLuftfeuchtigkeit.push({ date, Luftfeuchtigkeit });
       this.arrTemperatur.push({ date, Temperatur });
-
-      //console.log(this.arrTemperatur)
+      
+      
   });
+  console.log(this.arrLuftfeuchtigkeit)
   },
   
   
