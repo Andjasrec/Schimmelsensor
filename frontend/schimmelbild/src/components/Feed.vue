@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="Signup">Feed</div> 
+    <Chart class="Chart"></Chart>
     <div class="massnahmen">Keine Maßnahmen nötig</div>
     <div class="Luftfeuchtigkeit">Luftfeuchtigkeit {{Luftfeuchtigkeit}}</div>
     <div class="Raumtemperatur">Raumtemperatur {{Temperatur}}</div>
@@ -10,7 +11,11 @@
 </template>
 <script>
 import axios from "axios";
+import Chart from "../views/Chartcontainer.vue"
 export default {
+  components: { 
+    Chart
+  },
     props: {
     },
     data() {
@@ -119,5 +124,14 @@ font-size: 21px;
 line-height: 25px;
 text-align: center;
 
+}
+.Chart{
+position: absolute;
+width: 343px;
+height: 302px;
+left: calc(50% - 343px/2);
+top: calc(50% - 302px/2 - 143px);
+
+border-radius: 8px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container" v-if="arrLuftfeuchtigkeit.length > 0" >
-    <line-chart :chartData="arrLuftfeuchtigkeit" :options="chartOptions" label="Luftfeuchtigkeit"></line-chart>
+    <line-chart :chartData1="arrTemperatur" :chartData2="arrLuftfeuchtigkeit" :options="chartOptions" label1="Raumtemperatur" label2="Luftfeuchtigkeit"></line-chart>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
         chartOptions:{
           responive: true,
           maintianAspectRatio:false
-        }
+        },
     }
   },
   async created() {
