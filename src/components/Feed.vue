@@ -25,7 +25,7 @@ export default {
       }
     },
     mounted() {
-      axios.get('http://localhost:3000/api/latest')
+      axios.get('https://https://schimmelsensor_backend.ds.ava.hfg.design/api/latest')
       .then(response => {
         //this.data = response.data.Luftfeuchtigkeit))
         console.log(response);

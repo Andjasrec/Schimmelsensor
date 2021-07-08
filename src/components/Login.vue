@@ -31,7 +31,7 @@ import router from "./../router"
           username: this.username,
           password: this.password
         };
-        const uri = "http://localhost:3000/api/login";
+        const uri = "https://https://schimmelsensor_backend.ds.ava.hfg.design/api/login";
         axios.post(uri, userData)
         .then (function(response){
             router.push({name:"Feed"})

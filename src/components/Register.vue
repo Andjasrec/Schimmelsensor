@@ -34,7 +34,7 @@ import router from "./../router"
           username: this.username,
           password: this.password
         };
-        const uri = "http://localhost:3000/api/register";
+        const uri = "https://https://schimmelsensor_backend.ds.ava.hfg.design/api/register";
         axios.post(uri, userData)
         .then (function(response) {
           console.log(response)
