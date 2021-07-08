@@ -1,2 +1,0 @@
-# Schimmelsensor
- Schimmelmessungen prävention
