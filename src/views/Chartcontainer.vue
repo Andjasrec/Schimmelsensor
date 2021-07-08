@@ -22,7 +22,7 @@ export default {
     }
   },
   async created() {
-  const { data } = await axios.get("https://https://schimmelsensor_backend.ds.ava.hfg.design/api/last10");
+  const { data } = await axios.get("https://schimmelsensor_backend.ds.ava.hfg.design/api/last10");
   //console.log(data)
   data.forEach(d => {
     const date = moment(d.createdat, "YYYYMMDD").format("MM/DD");
