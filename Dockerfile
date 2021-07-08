@@ -19,4 +19,4 @@ COPY . .
 LABEL traefik.http.routers.schimmelsensor.rule="Host(`schimmelsensor.ds.ava.hfg.design`)"
 
 EXPOSE 8080
-CMD [ "npm", "run serve" ]
+CMD [ "npm run serve"]
