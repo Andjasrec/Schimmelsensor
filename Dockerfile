@@ -18,5 +18,5 @@ COPY . .
 # Network / reverse proxy config
 LABEL traefik.http.routers.schimmelsensor.rule="Host(`schimmelsensor.ds.ava.hfg.design`)"
 
-EXPOSE 3000
+EXPOSE 8080
 CMD [ "npm", "run serve" ]
